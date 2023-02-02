@@ -7,6 +7,8 @@ const EditorPage = () => {
   const [clients /*setClients*/] = useState([
     { socketId: 1, userName: "BHuvan A" },
     { socketId: 2, userName: "Khushi S" },
+    { socketId: 3, userName: "Khushi S" },
+    { socketId: 4, userName: "Khushi S" },
   ]);
 
   return (

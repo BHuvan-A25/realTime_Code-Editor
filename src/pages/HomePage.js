@@ -65,9 +65,9 @@ const HomePage = () => {
             onChange={(e) => {
               setUserName(e.target.value);
             }}
-            onpaste="return false;"
-            ondrop="return false;"
-            autocomplete="off"
+            // onpaste="return false;"
+            // ondrop="return false;"
+            // autocomplete="off"
             value={userName}
             onKeyUp={handleInputEnter}
           />

@@ -1,30 +1,28 @@
-import CodeMirror from "@uiw/react-codemirror";
-// import { javascript } from "@uiw/codemirror-extensions-javascript";
-// import { abcdef } from "@uiw/codemirror-themes-all";
-import {
-  loadLanguage,
-  // langNames,
-  /*langs*/
-} from "@uiw/codemirror-extensions-langs";
-// import { javas } from "@codemirror/lang-javascript";
-
-loadLanguage("javascript");
-
-// console.log(javas.javascript());
-
-// console.log("langNames:", langNames);
-// // import React from "react";
+import React, { useEffect } from "react";
+import CodeMirror from "codemirror";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/midnight.css";
+import "codemirror/addon/edit/closetag";
+import "codemirror/addon/edit/closebrackets";
+import "codemirror/mode/javascript/javascript";
 const Editor = () => {
+  useEffect(() => {
+    async function init() {
+      CodeMirror.fromTextArea(document.getElementById("realtimeEditor"), {
+        mode: { name: "javascript", json: true },
+        theme: "midnight",
+        autoCloseTags: true,
+        autoCloseBrackets: true,
+        lineNumbers: true,
+      });
+    }
+    init();
+  }, []);
+  // const codeMirrorRef = useRef(null);
+
   return (
-    <CodeMirror
-      value="console.log('hello world!');"
-      height="200px"
-      // extensions={[langs.javascript()]}
-      // extensions={[javascript({ json: true })]}
-      onChange={(value, viewUpdate) => {
-        console.log("value:", value);
-      }}
-    />
+    // <CodeMirror/>
+    <textarea id="realtimeEditor" defaultValue={"//Code Here"}></textarea>
   );
 };
 export default Editor;
